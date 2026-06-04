@@ -32,12 +32,39 @@ foto-scan24/
 | `assets/images/foto-scan24-logo.svg` | Logo |
 | `assets/images/family_gold_02.png` | Eyecatcher-Bild (Großeltern mit Enkel) |
 
-## Abschnitte / Seiten
+## Abschnitte (sections/)
 | Datei | Beschreibung |
 |-------|--------------|
-| `sections/eyecatcher.html` | Hero-Bild, volle Breite, schwarzer Rand auf breiten Screens |
-| `datenschutz.html` | Datenschutzerklärung (standalone Seite) |
-| `impressum.html` | Impressum (standalone Seite) |
+| `eyecatcher.html` | Hero-Bild, volle Breite, schwarzer Rand auf breiten Screens |
+| `hero.html` | "Wir digitalisieren Ihre analogen Schätze" + Buttons |
+| `warum.html` | "Warum digitalisieren?" mit 5 Icon-Karten |
+| `leistungen.html` | "Unsere Digitalisierungsleistungen" mit 9 Service-Karten |
+| `übergabe.html` | "Nur persönliche Übergabe" Hinweis-Block |
+| `preise.html` | Preisübersicht (4 Kategorien) |
+| `ablauf.html` | "So einfach geht's" – 4 Schritte |
+| `kontakt.html` | Kontakt & Anfrage + CTA "Retten Sie Ihre Erinnerungen!" |
+
+## Standalone Seiten
+| Datei | Beschreibung |
+|-------|--------------|
+| `datenschutz.html` | Datenschutzerklärung |
+| `impressum.html` | Impressum |
+| `dias.html` | Medien-Unterseite: Dias |
+| `super8.html` | Medien-Unterseite: Super 8 & Normal 8 |
+| `video.html` | Medien-Unterseite: VHS / Hi8 / MiniDV |
+| `fotos.html` | Medien-Unterseite: Fotos & Negative |
+| `fotoalben.html` | Medien-Unterseite: Fotoalben |
+
+## CSS-Dateien
+| Datei | Zweck |
+|-------|-------|
+| `assets/css/style.css` | Globale Styles, Header, alle Section-Styles |
+| `assets/css/legal.css` | Datenschutz & Impressum |
+| `assets/css/media.css` | Medien-Unterseiten (unterseite-hero, content-block) |
+
+## Kontaktdaten
+- E-Mail: info@foto-scan24.de
+- Telefon: 06252 787417
 
 ## Offene Todos
 - Google Business Abschnitt in datenschutz.html ergänzen, sobald Account aktiv ist

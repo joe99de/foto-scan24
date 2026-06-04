@@ -4,33 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foto-scan24.de — Mediendigitalisierung</title>
+  <meta name="description" content="Professionelle Digitalisierung analoger Medien: Dias, Super8, Normal8, VHS, VHS-C, Hi8, Fotos und Fotoalben. Nur persönliche Übergabe. foto-scan24.de">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- eyecatcher -->
-  <div id="section-eyecatcher"></div>
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Diese Website verwendet ausschließlich technisch notwendige Cookies.
+    <a href="datenschutz.html">Datenschutzerklärung</a></p>
+  <button class="btn-cookie" onclick="document.getElementById('cookieBanner').style.display='none'; localStorage.setItem('cookieOk','1')">OK, verstanden</button>
+</div>
+<script>if(localStorage.getItem('cookieOk')) document.getElementById('cookieBanner').style.display='none';</script>
 
-  <script>
-    // Abschnitte dynamisch laden
-    const sections = [
-      { id: 'section-eyecatcher', file: 'sections/eyecatcher.html' },
-    ];
-    sections.forEach(({ id, file }) => {
-      fetch(file)
-        .then(r => r.text())
-        .then(html => { document.getElementById(id).outerHTML = html; });
-    });
-  </script>
+<!-- Header -->
+<header class="site-header">
+  <div class="header-logo">
+    <a href="index.html"><img src="assets/images/foto-scan24-logo.svg" alt="Foto-scan24.de" height="56"></a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="dias.html">Dias</a></li>
+      <li><a href="super8.html">Super 8</a></li>
+      <li><a href="video.html">VHS / Hi8 / DV</a></li>
+      <li><a href="fotos.html">Fotos &amp; Negative</a></li>
+      <li><a href="fotoalben.html">Fotoalben</a></li>
+      <li><a href="#preise">Preise</a></li>
+      <li><a href="#ablauf">Ablauf</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <footer class="legal-footer">
-    <div class="container">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutzerklärung</a>
-      <a href="index.html#kontakt">Kontakt</a>
-    </div>
-    <p>© 2025 Herrmann &amp; Herrmann GbR – foto-scan24.de</p>
-  </footer>
+<!-- Sections werden dynamisch geladen -->
+<div id="s-eyecatcher"></div>
+<div id="s-hero"></div>
+<div id="s-warum"></div>
+<div id="s-leistungen"></div>
+<div id="s-übergabe"></div>
+<div id="s-preise"></div>
+<div id="s-ablauf"></div>
+<div id="s-kontakt"></div>
+
+<footer class="legal-footer">
+  <div class="container">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutzerklärung</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <p>© 2025 Herrmann &amp; Herrmann GbR – foto-scan24.de</p>
+</footer>
+
+<script>
+  const sections = [
+    { id: 's-eyecatcher', file: 'sections/eyecatcher.html' },
+    { id: 's-hero',       file: 'sections/hero.html' },
+    { id: 's-warum',      file: 'sections/warum.html' },
+    { id: 's-leistungen', file: 'sections/leistungen.html' },
+    { id: 's-übergabe',   file: 'sections/übergabe.html' },
+    { id: 's-preise',     file: 'sections/preise.html' },
+    { id: 's-ablauf',     file: 'sections/ablauf.html' },
+    { id: 's-kontakt',    file: 'sections/kontakt.html' },
+  ];
+  sections.forEach(({ id, file }) => {
+    fetch(file)
+      .then(r => r.text())
+      .then(html => { document.getElementById(id).outerHTML = html; });
+  });
+</script>
 
 </body>
 </html>
