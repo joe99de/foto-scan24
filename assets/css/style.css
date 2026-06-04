@@ -279,7 +279,7 @@ a:hover { text-decoration: underline; }
 }
 
 .kontakt-item { display: flex; align-items: flex-start; gap: 16px; }
-.kontakt-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--brand-red); color: #fff; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.kontakt-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #1a237e, #3949ab); color: #fff; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .kontakt-text h4 { font-size: .8rem; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
 .kontakt-text a, .kontakt-text p { color: var(--text-dark); font-size: 1rem; font-weight: 700; }
 .kontakt-text a:hover { color: var(--brand-red); }
