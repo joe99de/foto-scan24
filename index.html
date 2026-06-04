@@ -43,8 +43,7 @@
 <div id="s-warum"></div>
 <div id="s-leistungen"></div>
 <div id="s-übergabe"></div>
-<div id="s-preise"></div>
-<div id="s-ablauf"></div>
+<div id="s-preise-link"></div>
 <div id="s-kontakt"></div>
 
 <footer class="legal-footer">
@@ -58,14 +57,13 @@
 
 <script>
   const sections = [
-    { id: 's-eyecatcher', file: 'sections/eyecatcher.html' },
-    { id: 's-hero',       file: 'sections/hero.html' },
-    { id: 's-warum',      file: 'sections/warum.html' },
-    { id: 's-leistungen', file: 'sections/leistungen.html' },
-    { id: 's-übergabe',   file: 'sections/übergabe.html' },
-    { id: 's-preise',     file: 'sections/preise.html' },
-    { id: 's-ablauf',     file: 'sections/ablauf.html' },
-    { id: 's-kontakt',    file: 'sections/kontakt.html' },
+    { id: 's-eyecatcher',  file: 'sections/eyecatcher.html' },
+    { id: 's-hero',        file: 'sections/hero.html' },
+    { id: 's-warum',       file: 'sections/warum.html' },
+    { id: 's-leistungen',  file: 'sections/leistungen.html' },
+    { id: 's-übergabe',    file: 'sections/übergabe.html' },
+    { id: 's-preise-link', file: 'sections/preise-link.html' },
+    { id: 's-kontakt',     file: 'sections/kontakt.html' },
   ];
   sections.forEach(({ id, file }) => {
     fetch(file)
