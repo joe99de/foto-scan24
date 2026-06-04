@@ -349,8 +349,8 @@ a:hover { text-decoration: underline; }
 
 /* ===== Preise-Link ===== */
 .preise-link-section {
-  background: var(--brand-red);
-  color: #fff;
+  background: #f0f0f0;
+  color: #222;
   text-align: center;
   padding: 60px 24px;
 }
@@ -362,17 +362,17 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: .8;
+  color: var(--brand-red);
 }
 
-.preise-link-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; }
-.preise-link-section > .container > p { font-size: 1.05rem; opacity: .9; }
+.preise-link-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: #222; }
+.preise-link-section > .container > p { font-size: 1.05rem; color: #555; }
 
 .preise-link-section .btn-primary {
-  background: #fff;
-  color: var(--brand-red);
+  background: var(--brand-red);
+  color: #fff;
   margin-top: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+  box-shadow: 0 4px 20px rgba(255,0,0,.25);
 }
 
 .preise-link-section .btn-primary:hover { opacity: .92; text-decoration: none; }
