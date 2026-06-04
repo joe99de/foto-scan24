@@ -1,4 +1,4 @@
-# Foto-scan24.de — Projektdokumentation
+﻿# Foto-scan24.de — Projektdokumentation
 
 ## Firma
 Mediendigitalisierung, Website: Foto-scan24.de
@@ -63,7 +63,7 @@ foto-scan24/
 | `assets/css/media.css` | Medien-Unterseiten (unterseite-hero, content-block) |
 
 ## Kontaktdaten
-- E-Mail: info@foto-scan24.de
+- E-Mail: kontakt@foto-scan24.de
 - Telefon: 06252 787417
 
 ## Offene Todos
