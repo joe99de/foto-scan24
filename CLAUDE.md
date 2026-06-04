@@ -37,6 +37,7 @@ foto-scan24/
 |-------|--------------|
 | `sections/eyecatcher.html` | Hero-Bild, volle Breite, schwarzer Rand auf breiten Screens |
 | `datenschutz.html` | Datenschutzerklärung (standalone Seite) |
+| `impressum.html` | Impressum (standalone Seite) |
 
 ## Offene Todos
 - Google Business Abschnitt in datenschutz.html ergänzen, sobald Account aktiv ist
