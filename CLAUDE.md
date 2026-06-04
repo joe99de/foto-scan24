@@ -32,7 +32,12 @@ foto-scan24/
 | `assets/images/foto-scan24-logo.svg` | Logo |
 | `assets/images/family_gold_02.png` | Eyecatcher-Bild (Großeltern mit Enkel) |
 
-## Abschnitte
+## Abschnitte / Seiten
 | Datei | Beschreibung |
 |-------|--------------|
 | `sections/eyecatcher.html` | Hero-Bild, volle Breite, schwarzer Rand auf breiten Screens |
+| `datenschutz.html` | Datenschutzerklärung (standalone Seite) |
+
+## Offene Todos
+- Google Business Abschnitt in datenschutz.html ergänzen, sobald Account aktiv ist
+  (Kommentar im HTML bereits als Platzhalter vorhanden)

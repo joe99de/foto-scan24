@@ -1,0 +1,77 @@
+/* ===== Legal pages (Datenschutz, Impressum) ===== */
+
+.legal-page {
+  padding: 40px 20px 60px;
+  max-width: 800px;
+}
+
+.legal-page h1 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--brand-black);
+}
+
+.legal-page h2 {
+  font-size: 1.2rem;
+  margin-top: 36px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--brand-red);
+  padding-bottom: 4px;
+}
+
+.legal-page h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+.legal-page p {
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.legal-page ul {
+  margin: 10px 0 16px 22px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.legal-page address {
+  font-style: normal;
+  line-height: 1.8;
+  margin: 10px 0 16px;
+  color: #333;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--brand-red);
+  font-size: 0.9rem;
+}
+
+.legal-date {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.legal-footer {
+  background: var(--brand-black);
+  color: var(--brand-white);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+}
+
+.legal-footer a {
+  color: var(--brand-white);
+  margin: 0 10px;
+}
+
+.legal-footer p {
+  margin-top: 8px;
+  color: #aaa;
+}
