@@ -35,3 +35,20 @@ a:hover {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+/* ===== Eyecatcher ===== */
+.eyecatcher {
+  background: var(--brand-black);
+  width: 100%;
+}
+
+.eyecatcher__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyecatcher__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

@@ -8,8 +8,20 @@
 </head>
 <body>
 
-  <!-- Abschnitte werden als separate Dateien in /sections gepflegt -->
-  <!-- und hier per <include> oder JS eingebunden (oder direkt eingefügt) -->
+  <!-- eyecatcher -->
+  <div id="section-eyecatcher"></div>
+
+  <script>
+    // Abschnitte dynamisch laden
+    const sections = [
+      { id: 'section-eyecatcher', file: 'sections/eyecatcher.html' },
+    ];
+    sections.forEach(({ id, file }) => {
+      fetch(file)
+        .then(r => r.text())
+        .then(html => { document.getElementById(id).outerHTML = html; });
+    });
+  </script>
 
 </body>
 </html>
