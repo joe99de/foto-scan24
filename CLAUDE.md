@@ -66,6 +66,14 @@ foto-scan24/
 - E-Mail: kontakt@foto-scan24.de
 - Telefon: 06252 787417
 
+## Teilprojekte: Print-Materialien
+Flyer und Visitenkarte werden als separate Dateien unter `print/` gepflegt.
+
+**Führungsprinzip:**
+- Die **Webseite ist führend** für Inhalt und Design
+- Änderungen an der Webseite wirken sich auch auf Flyer und Visitenkarte aus
+- Änderungen an Visitenkarte/Flyer wirken sich **nur nach ausdrücklicher Anweisung** auf die Webseite aus
+
 ## Offene Todos
 - Google Business Abschnitt in datenschutz.html ergänzen, sobald Account aktiv ist
   (Kommentar im HTML bereits als Platzhalter vorhanden)

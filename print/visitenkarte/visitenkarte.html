@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Visitenkarte – Foto-scan24.de</title>
+  <style>
+    /* ===== Druck-Setup ===== */
+    @page {
+      size: 85mm 55mm;
+      margin: 0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 30px;
+    }
+
+    /* ===== Karte Basis ===== */
+    .karte {
+      width: 85mm;
+      height: 55mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.25);
+    }
+
+    /* ================================================
+       VORDERSEITE
+       ================================================ */
+    .vorderseite {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Roter Balken oben */
+    .vs-top-bar {
+      background: #FF0000;
+      height: 8mm;
+      display: flex;
+      align-items: center;
+      padding: 0 4mm;
+    }
+
+    .vs-top-bar .logo-text {
+      color: #fff;
+      font-size: 5mm;
+      font-weight: 900;
+      font-family: 'Arial Black', Arial, sans-serif;
+      letter-spacing: .5px;
+    }
+
+    /* Hauptbereich */
+    .vs-body {
+      flex: 1;
+      display: flex;
+      padding: 3mm 4mm 2mm;
+      gap: 3mm;
+    }
+
+    /* Linke Spalte: Kontakt */
+    .vs-kontakt {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2mm;
+    }
+
+    .vs-firma {
+      font-size: 2.8mm;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.3;
+      margin-bottom: 1mm;
+    }
+
+    .vs-kontakt-zeile {
+      font-size: 2.3mm;
+      color: #444;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 1mm;
+    }
+
+    .vs-kontakt-zeile .icon {
+      color: #FF0000;
+      font-size: 2.5mm;
+      flex-shrink: 0;
+      margin-top: .1mm;
+    }
+
+    /* Rechte Spalte: Leistungen */
+    .vs-leistungen {
+      width: 28mm;
+      border-left: .5mm solid #FF0000;
+      padding-left: 2.5mm;
+      display: flex;
+      flex-direction: column;
+      gap: .8mm;
+    }
+
+    .vs-leistungen-titel {
+      font-size: 2.2mm;
+      font-weight: 700;
+      color: #FF0000;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 1mm;
+    }
+
+    .vs-leistungen li {
+      list-style: none;
+      font-size: 2.1mm;
+      color: #333;
+      line-height: 1.3;
+    }
+
+    .vs-leistungen li::before {
+      content: '›';
+      color: #FF0000;
+      margin-right: .8mm;
+      font-weight: 700;
+    }
+
+    /* Roter Balken unten */
+    .vs-bottom-bar {
+      background: #FF0000;
+      height: 4mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vs-bottom-bar span {
+      color: rgba(255,255,255,.85);
+      font-size: 2mm;
+      letter-spacing: .5px;
+    }
+
+    /* ================================================
+       RÜCKSEITE
+       ================================================ */
+    .rueckseite {
+      position: relative;
+    }
+
+    .rs-foto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Dunkler Overlay */
+    .rs-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,.75) 0%,
+        rgba(0,0,0,.2) 55%,
+        rgba(0,0,0,0) 100%
+      );
+    }
+
+    /* Roter Balken oben auf Rückseite */
+    .rs-top-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6mm;
+      background: #FF0000;
+      display: flex;
+      align-items: center;
+      padding: 0 4mm;
+    }
+
+    .rs-top-bar .logo-text {
+      color: #fff;
+      font-size: 4mm;
+      font-weight: 900;
+      font-family: 'Arial Black', Arial, sans-serif;
+    }
+
+    /* Teaser-Text */
+    .rs-teaser {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 3mm 4mm 4mm;
+      text-align: center;
+    }
+
+    .rs-teaser-spruch {
+      color: #fff;
+      font-size: 3.8mm;
+      font-weight: 700;
+      line-height: 1.3;
+      text-shadow: 0 1px 4px rgba(0,0,0,.6);
+    }
+
+    .rs-teaser-sub {
+      color: rgba(255,255,255,.85);
+      font-size: 2.3mm;
+      margin-top: 1.5mm;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    }
+
+    /* ===== Druck: nur Karten ausgeben ===== */
+    @media print {
+      body { background: none; padding: 0; gap: 0; }
+      .karte { box-shadow: none; page-break-after: always; }
+      .label { display: none; }
+    }
+
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="label">▼ VORDERSEITE</div>
+
+  <!-- VORDERSEITE -->
+  <div class="karte vorderseite">
+
+    <!-- Roter Balken oben mit Logo-Text -->
+    <div class="vs-top-bar">
+      <span class="logo-text">Foto-scan24.de</span>
+    </div>
+
+    <!-- Hauptbereich -->
+    <div class="vs-body">
+
+      <!-- Kontakt -->
+      <div class="vs-kontakt">
+        <div class="vs-firma">
+          Herrmann &amp; Herrmann GbR<br>
+          <span style="font-weight:400; font-size:2.4mm;">Simone &amp; Jochen Herrmann</span>
+        </div>
+        <div class="vs-kontakt-zeile"><span class="icon">📍</span><span>Wilhelm-Holzamer-Str. 28<br>64646 Heppenheim</span></div>
+        <div class="vs-kontakt-zeile"><span class="icon">📞</span><span>06252 787417</span></div>
+        <div class="vs-kontakt-zeile"><span class="icon">✉</span><span>kontakt@foto-scan24.de</span></div>
+        <div class="vs-kontakt-zeile"><span class="icon">🌐</span><span>www.foto-scan24.de</span></div>
+      </div>
+
+      <!-- Leistungen -->
+      <div class="vs-leistungen">
+        <div class="vs-leistungen-titel">Unsere Leistungen</div>
+        <ul>
+          <li>Dias</li>
+          <li>Super 8 / Normal 8</li>
+          <li>VHS &amp; Camcorder</li>
+          <li>Fotos &amp; Negative</li>
+          <li>Fotoalben</li>
+          <li>Kassettenreparatur</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Roter Balken unten -->
+    <div class="vs-bottom-bar">
+      <span>Nur persönliche Übergabe · nach Terminvereinbarung</span>
+    </div>
+
+  </div>
+
+  <div class="label">▼ RÜCKSEITE</div>
+
+  <!-- RÜCKSEITE -->
+  <div class="karte rueckseite">
+    <img class="rs-foto" src="../../assets/images/family_gold_02.png" alt="">
+    <div class="rs-overlay"></div>
+    <div class="rs-top-bar"><span class="logo-text">Foto-scan24.de</span></div>
+    <div class="rs-teaser">
+      <div class="rs-teaser-spruch">Retten Sie Ihre Erinnerungen –<br>für immer digital.</div>
+      <div class="rs-teaser-sub">Dias · Super 8 · VHS · Fotos · Fotoalben</div>
+    </div>
+  </div>
+
+</body>
+</html>
