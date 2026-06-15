@@ -31,7 +31,7 @@
 }
 
 .cta-box h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
-.cta-box p { opacity: .82; line-height: 1.7; margin-bottom: 20px; }
+.cta-box p { color: rgba(255,255,255,.9); line-height: 1.7; margin-bottom: 20px; }
 
 .btn {
   display: inline-block;
