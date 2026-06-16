@@ -68,10 +68,19 @@
     { id: 's-ablauf',     file: 'sections/ablauf.html' },
     { id: 's-kontakt',     file: 'sections/kontakt.html' },
   ];
-  sections.forEach(({ id, file }) => {
+  Promise.all(sections.map(({ id, file }) =>
     fetch(file)
       .then(r => r.text())
-      .then(html => { document.getElementById(id).outerHTML = html; });
+      .then(html => { document.getElementById(id).outerHTML = html; })
+  )).then(() => {
+    const s1 = document.createElement('script');
+    s1.src = 'assets/js/preise.config.js';
+    s1.onload = () => {
+      const s2 = document.createElement('script');
+      s2.src = 'assets/js/preise-render.js';
+      document.body.appendChild(s2);
+    };
+    document.body.appendChild(s1);
   });
 </script>
 
