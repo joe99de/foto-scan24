@@ -22,6 +22,12 @@ window.PREISE_CONFIG = {
   /** Hinweistext unter dem gesamten Preisgitter */
   abschlusshinweis: "Bei größeren Mengen oder besonderen Formaten erstellen wir gerne ein individuelles Angebot.\nGemäß § 19 UStG wird keine Mehrwertsteuer ausgewiesen.",
 
+  /** Hervorgehobener Hinweisblock "Preisbremse" unterhalb der Preiskarten */
+  preisbremse: {
+    titel: "🛡️ Unsere Preisbremse",
+    text: "Sollte sich bei Ihrem Material ein Problemfall zeigen – etwa wenn mehrfache Reparaturen nötig würden –, melden wir uns vorher bei Ihnen. So vermeiden wir unnötige Mehrfachreparaturen und Sie behalten jederzeit die volle Kostenkontrolle."
+  },
+
   gruppen: [
     {
       titel: "📷 Dias",

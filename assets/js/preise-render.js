@@ -68,6 +68,18 @@
       }
     });
 
+    document.querySelectorAll("[data-preisbremse]").forEach(function (el) {
+      el.innerHTML = "";
+      if (config.preisbremse) {
+        var titel = document.createElement("strong");
+        titel.textContent = config.preisbremse.titel;
+        var text = document.createElement("p");
+        text.textContent = config.preisbremse.text;
+        el.appendChild(titel);
+        el.appendChild(text);
+      }
+    });
+
     document.querySelectorAll("[data-preise-teaser]").forEach(function (el) {
       var teaser = config.gruppen
         .filter(function (g) { return g.teaserName && g.teaserPreis; })
