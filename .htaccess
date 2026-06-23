@@ -8,3 +8,11 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # --- Standard-Startseite ---
 DirectoryIndex index.html
+
+# Zugriff auf interne Dateien und Verzeichnisse sperren
+RedirectMatch 404 /\.git
+RedirectMatch 404 /\.idea
+RedirectMatch 404 /\.claude
+RedirectMatch 404 /CLAUDE\.md
+RedirectMatch 404 /deploy\.ps1
+RedirectMatch 404 /server-starten\.bat
