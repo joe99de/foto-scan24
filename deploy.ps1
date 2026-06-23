@@ -22,8 +22,8 @@ $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $pscp  = "C:\Program Files\PuTTY\pscp.exe"
-$plink = "C:\Program Files\PuTTY\plink.exe"
-foreach ($exe in @($pscp, $plink)) {
+$psftp = "C:\Program Files\PuTTY\psftp.exe"
+foreach ($exe in @($pscp, $psftp)) {
   if (-not (Test-Path $exe)) { throw "Nicht gefunden: $exe (PuTTY installiert?)" }
 }
 
@@ -34,9 +34,13 @@ $pw   = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
 [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
 
 # --- Modus: Server auflisten (Web-Root finden) ---
+# Goneo erlaubt nur SFTP (kein SSH-Shell), daher psftp-Batch statt plink.
 if ($ListRemote) {
   Write-Host "Verbinde und liste Remote-Verzeichnis..." -ForegroundColor Cyan
-  & $plink -ssh -P $Port -pw $pw "$User@$HostName" "echo '== pwd =='; pwd; echo '== ls =='; ls -la"
+  $batch = Join-Path $env:TEMP "fs24-ls.txt"
+  "pwd`nls`nquit" | Set-Content -Path $batch -Encoding ascii
+  & $psftp -P $Port -pw $pw -b $batch "$User@$HostName"
+  Remove-Item $batch -Force
   return
 }
 
@@ -60,7 +64,7 @@ Get-ChildItem $stage -Force | ForEach-Object { Write-Host "  - $($_.Name)" }
 
 # --- Upload (jedes Top-Level-Element rekursiv) ---
 Get-ChildItem $stage -Force | ForEach-Object {
-  & $pscp -P $Port -pw $pw -r $_.FullName "$User@${HostName}:$RemoteDir"
+  & $pscp -sftp -P $Port -pw $pw -r $_.FullName "$User@${HostName}:$RemoteDir"
   if ($LASTEXITCODE -ne 0) { throw "Upload fehlgeschlagen bei: $($_.Name)" }
 }
 
