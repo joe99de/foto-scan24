@@ -14,7 +14,7 @@ param(
   [string]$HostName  = "foto-scan24.de",
   [string]$User      = "179932f143511",
   [int]   $Port      = 22,
-  [string]$RemoteDir = "",
+  [string]$RemoteDir = "htdocs",
   [switch]$ListRemote
 )
 
@@ -50,7 +50,7 @@ if (-not $RemoteDir) {
 }
 
 # --- Staging: nur Web-Dateien kopieren ---
-$exclude = @('.git', '.gitignore', '.claude', 'print', 'CLAUDE.md', 'server-starten.bat', 'deploy.ps1')
+$exclude = @('.git', '.gitignore', '.claude', '.idea', '.vscode', 'print', 'CLAUDE.md', 'server-starten.bat', 'deploy.ps1')
 $stage = Join-Path $env:TEMP "fs24-deploy"
 if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
 New-Item -ItemType Directory -Path $stage | Out-Null
