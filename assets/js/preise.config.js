@@ -42,22 +42,22 @@ window.PREISE_CONFIG = {
     {
       titel: "🎞️ Super 8 / 8mm Film",
       teaserName: "Super 8",
-      teaserPreis: "ab 10,00 €",
+      teaserPreis: "ab 8,00 €",
       produkte: [
-        { name: "Kleine Spule (3:20 Minuten)", preis: "10,00 €"   },
-        { name: "Super-8-Filmrolle",           preis: "3,00 € / Minute" },
-        { name: "Normal-8-Filmrolle",          preis: "3,00 € / Minute" },
+        { name: "Kleine Spule (3:20 Minuten)", preis: "8,00 €"   },
+        { name: "Super-8-Filmrolle",           preis: "2,50 € / Minute" },
+        { name: "Normal-8-Filmrolle",          preis: "2,50 € / Minute" },
         { name: "Film flicken (Reparatur)",    preis: "5,00 €"    }
       ]
     },
     {
       titel: "📼 Videokassetten",
       teaserName: "VHS",
-      teaserPreis: "ab 15,00 €",
+      teaserPreis: "ab 10,00 €",
       produkte: [
         { name: "VHS 180 Min.",               preis: "15,00 €"  },
         { name: "VHS 240 Min.",               preis: "20,00 €"  },
-        { name: "Camcorder (VHS-C, Hi8 u.a.)", preis: "je 15,00 €" },
+        { name: "Camcorder (VHS-C, Hi8 u.a.)", preis: "je 10,00 €" },
         { name: "Kassettenreparatur",          preis: "10,00 €"  },
         { name: "Problemkassette (Aufschlag)", preis: "+ 10,00 €" }
       ]
@@ -73,7 +73,14 @@ window.PREISE_CONFIG = {
         { name: "Negative (Streifen)",     preis: "auf Anfrage"       },
         { name: "Fotoalben",               preis: "auf Anfrage"       }
       ]
+    },
+    {
+      titel: "📦 Versand",
+      produkte: [
+        { name: "Rückversand versichert (inkl. Verpackung)", preis: "9,90 €"    },
+        { name: "ab 100 € Auftragswert",                     preis: "kostenfrei" }
+      ],
+      hinweis: "Nur nach vorheriger Rücksprache. Versand auf eigenes Risiko – eine Transportversicherung ersetzt nur den Sachwert, nicht den ideellen Wert Ihrer Aufnahmen. Wir empfehlen die persönliche Übergabe."
     }
   ]
-
 };
