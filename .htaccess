@@ -1,0 +1,10 @@
+# foto-scan24.de — Server-Konfiguration
+
+# --- HTTP auf HTTPS umleiten ---
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Standard-Startseite ---
+DirectoryIndex index.html
