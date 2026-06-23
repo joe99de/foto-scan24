@@ -75,5 +75,10 @@ Flyer und Visitenkarte werden als separate Dateien unter `print/` gepflegt.
 - Änderungen an Visitenkarte/Flyer wirken sich **nur nach ausdrücklicher Anweisung** auf die Webseite aus
 
 ## Offene Todos
-- Google Business Abschnitt in datenschutz.html ergänzen, sobald Account aktiv ist
-  (Kommentar im HTML bereits als Platzhalter vorhanden)
+- (erledigt) Google-Unternehmensprofil-Abschnitt in datenschutz.html ergänzt
+
+## Deployment
+- Hosting bei Goneo, Web-Root `htdocs/`, Zugang nur per FTPS (kein SFTP)
+- Upload per `deploy.ps1 -Insecure` (Goneo-Zertifikat lautet auf *.goneo.de,
+  daher `-Insecure`; Verbindung bleibt TLS-verschlüsselt)
+- Live: https://foto-scan24.de
