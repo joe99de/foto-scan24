@@ -56,7 +56,10 @@ try {
   }
 
   # --- Staging: nur Web-Dateien kopieren ---
+  # $exclude greift auf oberster Ebene (Top-Level-Namen).
   $exclude = @('.git', '.gitignore', '.claude', '.idea', '.vscode', 'print', 'CLAUDE.md', 'server-starten.bat', 'deploy.ps1')
+  # $excludeFiles greift auf Dateinamen in beliebiger Verzeichnistiefe.
+  $excludeFiles = @('family_gold_02orig.png')
   $stage = Join-Path $env:TEMP "fs24-deploy"
   if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
   New-Item -ItemType Directory -Path $stage | Out-Null
@@ -65,7 +68,8 @@ try {
     Where-Object { $exclude -notcontains $_.Name } |
     ForEach-Object { Copy-Item $_.FullName -Destination $stage -Recurse -Force }
 
-  $files = Get-ChildItem -Path $stage -Recurse -File -Force
+  $files = Get-ChildItem -Path $stage -Recurse -File -Force |
+    Where-Object { $excludeFiles -notcontains $_.Name }
   Write-Host ("Lade {0} Dateien nach {1} hoch ..." -f $files.Count, $base) -ForegroundColor Cyan
 
   foreach ($f in $files) {
