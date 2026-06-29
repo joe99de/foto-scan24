@@ -83,8 +83,8 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 1mm 4mm 1mm;
-      gap: 1mm;
+      padding: .8mm 4mm 1mm;
+      gap: .8mm;
     }
 
     /* Inhaber-Zeile */
@@ -93,23 +93,25 @@
       font-weight: 400;
       color: #555;
       text-align: center;
-      margin-bottom: .4mm;
+      margin-bottom: .2mm;
     }
 
     /* Kontakt: 2x2-Raster (Ort, Telefon, E-Mail, URL) */
     .vs-kontakt {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1mm 3mm;
+      gap: 1mm 2.5mm;
     }
 
     .vs-kontakt-zeile {
       font-size: 2.3mm;
       color: #444;
-      line-height: 1.4;
+      line-height: 1.3;
       display: flex;
       align-items: flex-start;
+      justify-content: center;
       gap: 1mm;
+      text-align: center;
     }
 
     .vs-kontakt-zeile .icon {
@@ -119,33 +121,19 @@
       margin-top: .1mm;
     }
 
-    /* QR-Code-Reihe */
-    .vs-qr-row {
+    /* Eine Zelle: Kontaktangabe + zugehoeriger QR-Code darunter */
+    .vs-cell {
       display: flex;
-      justify-content: space-between;
-      gap: 2mm;
-      margin-top: auto;
+      flex-direction: column;
+      align-items: center;
+      gap: .6mm;
     }
 
-    .vs-qr-item {
-      flex: 1;
-      text-align: center;
-    }
-
-    .vs-qr-item img {
-      width: 10mm;
-      height: 10mm;
+    .vs-cell img {
+      width: 11mm;
+      height: 11mm;
       display: block;
-      margin: 0 auto;
-    }
-
-    .vs-qr-label {
-      font-size: 1.9mm;
-      font-weight: 700;
-      color: #FF0000;
-      text-transform: uppercase;
-      letter-spacing: .3px;
-      margin-top: .6mm;
+      margin-top: auto;
     }
 
     /* Roter Balken unten */
@@ -268,20 +256,24 @@
       <!-- Inhaber -->
       <div class="vs-inhaber">Inhaber: Simone &amp; Jochen Herrmann</div>
 
-      <!-- Kontakt: 2x2-Raster -->
+      <!-- Kontakt: 2x2-Raster, QR-Code je Angabe darunter -->
       <div class="vs-kontakt">
-        <div class="vs-kontakt-zeile"><span class="icon">📍</span><span>Wilhelm-Holzamer-Str. 28<br>64646 Heppenheim</span></div>
-        <div class="vs-kontakt-zeile"><span class="icon">📞</span><span>06252 787417</span></div>
-        <div class="vs-kontakt-zeile"><span class="icon">✉</span><span>kontakt@foto-scan24.de</span></div>
-        <div class="vs-kontakt-zeile"><span class="icon">🌐</span><span>www.foto-scan24.de</span></div>
-      </div>
-
-      <!-- QR-Codes -->
-      <div class="vs-qr-row">
-        <div class="vs-qr-item"><img src="qr-maps.png" alt="QR-Code Adresse auf Google Maps"><div class="vs-qr-label">Adresse</div></div>
-        <div class="vs-qr-item"><img src="qr-tel.png" alt="QR-Code Telefon"><div class="vs-qr-label">Anrufen</div></div>
-        <div class="vs-qr-item"><img src="qr-email.png" alt="QR-Code E-Mail"><div class="vs-qr-label">E-Mail</div></div>
-        <div class="vs-qr-item"><img src="qr-web.png" alt="QR-Code Website"><div class="vs-qr-label">Website</div></div>
+        <div class="vs-cell">
+          <div class="vs-kontakt-zeile"><span class="icon">📍</span><span>Wilhelm-Holzamer-Str. 28<br>64646 Heppenheim</span></div>
+          <img src="qr-maps.png" alt="QR-Code Adresse auf Google Maps">
+        </div>
+        <div class="vs-cell">
+          <div class="vs-kontakt-zeile"><span class="icon">📞</span><span>06252 787417</span></div>
+          <img src="qr-tel.png" alt="QR-Code Telefon">
+        </div>
+        <div class="vs-cell">
+          <div class="vs-kontakt-zeile"><span class="icon">✉</span><span>kontakt@foto-scan24.de</span></div>
+          <img src="qr-email.png" alt="QR-Code E-Mail">
+        </div>
+        <div class="vs-cell">
+          <div class="vs-kontakt-zeile"><span class="icon">🌐</span><span>www.foto-scan24.de</span></div>
+          <img src="qr-web.png" alt="QR-Code Website">
+        </div>
       </div>
 
     </div>
