@@ -30,7 +30,7 @@ foto-scan24/
 | Datei | Zweck |
 |-------|-------|
 | `assets/images/foto-scan24-logo.svg` | Logo |
-| `assets/images/family_gold_02.png` | Eyecatcher-Bild (Großeltern mit Enkel) |
+| `assets/images/family_gold_02.png` | Eyecatcher-Bild (Großeltern mit Enkel), KI-generiert — Kennzeichnung "Dieses Bild wurde von einer KI generiert." direkt unter dem Bild |
 
 ## Abschnitte (sections/)
 | Datei | Beschreibung |
@@ -76,6 +76,8 @@ Flyer und Visitenkarte werden als separate Dateien unter `print/` gepflegt.
 
 ## Offene Todos
 - (erledigt) Google-Unternehmensprofil-Abschnitt in datenschutz.html ergänzt
+- (erledigt) KI-Bildkennzeichnung am Eyecatcher (seit Aug. 2026 gesetzlich vorgeschrieben, EU AI Act Art. 50)
+  + Hinweis-Abschnitt "Hinweis zu KI-generierten Bildern" in impressum.html
 
 ## Deployment
 - Hosting bei Goneo, Web-Root `htdocs/`, Zugang nur per FTPS (kein SFTP)
