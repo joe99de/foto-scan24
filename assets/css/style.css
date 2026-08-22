@@ -73,6 +73,14 @@ a:hover { text-decoration: underline; }
 .eyecatcher { background: var(--brand-black); width: 100%; }
 .eyecatcher__inner { max-width: 1200px; margin: 0 auto; }
 .eyecatcher__img { display: block; width: 100%; height: auto; }
+.eyecatcher__ai-note {
+  margin: 0;
+  padding: 6px 12px;
+  text-align: right;
+  font-size: 0.75rem;
+  color: #aaaaaa;
+  background: var(--brand-black);
+}
 
 /* ===== Hero ===== */
 .hero {
