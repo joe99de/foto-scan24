@@ -3,7 +3,7 @@
   ====================================================
   Laedt NUR die Web-Dateien hoch; interne Dateien werden ausgelassen.
   Das Passwort kann aus goneo.local.ps1 gelesen oder beim Ausfuehren
-  abgefragt werden. Die temporaere curl-Config wird danach geloescht.
+  abgefragt werden. Der Upload erfolgt ueber WinSCP/FTPS.
 
   Verwendung:
     1) Web-Root pruefen (Inhalt von htdocs auflisten):
@@ -71,7 +71,7 @@ try {
 
   # --- Staging: nur Web-Dateien kopieren ---
   # $exclude greift auf oberster Ebene (Top-Level-Namen).
-  $exclude = @('.git', '.gitignore', '.claude', '.idea', '.vscode', 'print', 'CLAUDE.md', 'server-starten.bat', 'deploy.ps1')
+  $exclude = @('.git', '.gitignore', '.claude', '.idea', '.vscode', 'print', 'CLAUDE.md', 'server-starten.bat', 'deploy.ps1', 'goneo.local.ps1', 'goneo-upload.ps1', 'goneo-rollback.ps1', 'video-sandbox.html')
   # $excludeFiles greift auf Dateinamen in beliebiger Verzeichnistiefe.
   $excludeFiles = @('family_gold_02orig.png')
   $stage = Join-Path $env:TEMP "fs24-deploy"
@@ -84,7 +84,17 @@ try {
 
   $files = Get-ChildItem -Path $stage -Recurse -File -Force |
     Where-Object { $excludeFiles -notcontains $_.Name }
+  Get-ChildItem -Path $stage -Recurse -File -Force |
+    Where-Object { $excludeFiles -contains $_.Name } |
+    Remove-Item -Force
   Write-Host ("Lade {0} Dateien nach {1} hoch ..." -f $files.Count, $base) -ForegroundColor Cyan
+
+  $uploadScript = Join-Path $ScriptDir "goneo-upload.ps1"
+  & $uploadScript -LocalDir $stage -HostName $HostName -User $User -RemoteDir "/$RemoteDir" -Insecure:$Insecure
+  if ($LASTEXITCODE -ne 0) { throw "Upload fehlgeschlagen." }
+  Remove-Item $stage -Recurse -Force
+  Write-Host "Deploy abgeschlossen." -ForegroundColor Green
+  return
 
   foreach ($f in $files) {
     $rel = $f.FullName.Substring($stage.Length + 1) -replace '\\', '/'

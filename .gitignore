@@ -5,3 +5,4 @@ Thumbs.db
 # Lokale Zugangsdaten fuer deploy.ps1 (niemals committen)
 goneo.local.ps1
 fs24-remote-backups/
+fs24-deploy/
