@@ -80,8 +80,9 @@ Flyer und Visitenkarte werden als separate Dateien unter `print/` gepflegt.
   + Hinweis-Abschnitt "Hinweis zu KI-generierten Bildern" in impressum.html
 
 ## Aktuelle Angebotsentscheidungen
-- MiniDV digital kopieren: 1 Stunde entspricht ca. 13 GB, Ausgabe auf USB-Stick oder externer Festplatte, 10,00 €.
-- MiniDV analog kopieren: Ausgabe als DVD für DVD-Player, 15,00 €.
+- MiniDV digital kopieren: 1 Stunde entspricht ca. 13 GB, Ausgabe auf USB-Stick oder externer Festplatte, 15,00 €.
+- MiniDV analog kopieren: Ausgabe als DVD für DVD-Player, 20,00 €.
+- VHS-C, Hi8 und andere Camcorder-Kassetten: je 15,00 €.
 - Kleinaufträge: Mindestauftragswert ab 10,00 €.
 
 ## Deployment
