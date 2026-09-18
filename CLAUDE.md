@@ -51,7 +51,7 @@ foto-scan24/
 | `impressum.html` | Impressum |
 | `dias.html` | Medien-Unterseite: Dias |
 | `super8.html` | Medien-Unterseite: Super 8 & Normal 8 |
-| `video.html` | Medien-Unterseite: VHS / Hi8 / MiniDV |
+| `video.html` | Medien-Unterseite: VHS / Hi8 / Digital8 / MiniDV |
 | `fotos.html` | Medien-Unterseite: Fotos & Negative |
 | `fotoalben.html` | Medien-Unterseite: Fotoalben |
 
