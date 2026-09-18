@@ -27,6 +27,12 @@ param(
 $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
+# --- Remote-Stand vor jedem Upload sichern ---
+$rollbackScript = Join-Path $ScriptDir "goneo-rollback.ps1"
+if (-not (Test-Path $rollbackScript)) { throw "Rollback-Skript fehlt: $rollbackScript" }
+& $rollbackScript -CreateBackup -Insecure:$Insecure
+if ($LASTEXITCODE -ne 0) { throw "Remote-Backup fehlgeschlagen. Upload wird abgebrochen." }
+
 $curl = "C:\Windows\System32\curl.exe"
 if (-not (Test-Path $curl)) { $curl = (Get-Command curl.exe).Source }
 
