@@ -57,9 +57,12 @@ window.PREISE_CONFIG = {
       produkte: [
         { name: "VHS 180 Min.",               preis: "15,00 €"  },
         { name: "VHS 240 Min.",               preis: "20,00 €"  },
+        { name: "MiniDV digital kopieren (1 Std. / ca. 13 GB)", preis: "10,00 €" },
+        { name: "MiniDV analog kopieren (DVD für DVD-Player)",  preis: "15,00 €" },
         { name: "Camcorder (VHS-C, Hi8 u.a.)", preis: "je 10,00 €" },
         { name: "Kassettenreparatur",          preis: "10,00 €"  },
-        { name: "Problemkassette (Aufschlag)", preis: "+ 10,00 €" }
+        { name: "Problemkassette (Aufschlag)", preis: "+ 10,00 €" },
+        { name: "Kleinaufträge (Mindestauftragswert)", preis: "ab 10,00 €" }
       ]
     },
     {

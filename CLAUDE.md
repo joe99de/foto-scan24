@@ -79,6 +79,11 @@ Flyer und Visitenkarte werden als separate Dateien unter `print/` gepflegt.
 - (erledigt) KI-Bildkennzeichnung am Eyecatcher (seit Aug. 2026 gesetzlich vorgeschrieben, EU AI Act Art. 50)
   + Hinweis-Abschnitt "Hinweis zu KI-generierten Bildern" in impressum.html
 
+## Aktuelle Angebotsentscheidungen
+- MiniDV digital kopieren: 1 Stunde entspricht ca. 13 GB, Ausgabe auf USB-Stick oder externer Festplatte, 10,00 €.
+- MiniDV analog kopieren: Ausgabe als DVD für DVD-Player, 15,00 €.
+- Kleinaufträge: Mindestauftragswert ab 10,00 €.
+
 ## Deployment
 - Hosting bei Goneo, Web-Root `htdocs/`, Zugang nur per FTPS (kein SFTP)
 - Upload per `deploy.ps1 -Insecure` (Goneo-Zertifikat lautet auf *.goneo.de,
