@@ -2,8 +2,8 @@
   deploy.ps1 — foto-scan24 per FTPS zu Goneo hochladen
   ====================================================
   Laedt NUR die Web-Dateien hoch; interne Dateien werden ausgelassen.
-  Das Passwort wird beim Ausfuehren abgefragt und NICHT gespeichert
-  (Uebergabe per temporaerer curl-Config, danach geloescht).
+  Das Passwort kann aus goneo.local.ps1 gelesen oder beim Ausfuehren
+  abgefragt werden. Die temporaere curl-Config wird danach geloescht.
 
   Verwendung:
     1) Web-Root pruefen (Inhalt von htdocs auflisten):
@@ -30,11 +30,19 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $curl = "C:\Windows\System32\curl.exe"
 if (-not (Test-Path $curl)) { $curl = (Get-Command curl.exe).Source }
 
-# --- Passwort sicher abfragen ---
-$sec  = Read-Host "Goneo-Passwort fuer $User" -AsSecureString
-$bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec)
-$pw   = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
-[Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
+# --- Passwort aus lokaler Config laden oder sicher abfragen ---
+$localConfig = Join-Path $ScriptDir "goneo.local.ps1"
+$pw = $null
+if (Test-Path $localConfig) {
+  . $localConfig
+  if ($GoneoPassword) { $pw = $GoneoPassword }
+}
+if (-not $pw) {
+  $sec  = Read-Host "Goneo-Passwort fuer $User" -AsSecureString
+  $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec)
+  $pw   = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
+  [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
+}
 
 # --- curl-Config mit Zugangsdaten (temporaer) ---
 $cfg = Join-Path $env:TEMP ("fs24-curl-" + [guid]::NewGuid().ToString("N") + ".cfg")

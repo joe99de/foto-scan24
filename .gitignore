@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 *.tmp
+
+# Lokale Zugangsdaten fuer deploy.ps1 (niemals committen)
+goneo.local.ps1
