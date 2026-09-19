@@ -6,6 +6,7 @@ Website: foto-scan24.de. foto-scan24.de ist eine Geschäftsbezeichnung der
 Herrmann & Herrmann GbR.
 
 ## Arbeitsweise
+- Projektdokumentation bei jeder relevanten Aenderung mitfuehren.
 - Quellmaterial liegt auf: `C:\diskstation\H und H\Digitalisierung\website\`
 - Nur Dateien übernehmen, die **explizit genannt** werden — keine Varianten oder ähnliche Dateien eigenständig kopieren
 - Lange HTML-Seiten werden in einzelne Abschnitte aufgeteilt (je eine Datei unter `sections/`)
@@ -89,6 +90,14 @@ Flyer und Visitenkarte werden als separate Dateien unter `print/` gepflegt.
 - Kleinaufträge: Mindestauftragswert ab 10,00 €.
 
 ## Deployment
+### Statische Startseite und Sitemap (19.09.2026)
+- `index.html` und `sections/*.html` bleiben die bearbeitbaren Quellen mit lokaler Fetch-Vorschau.
+- `build-index.ps1 -OutputPath <Zieldatei>` bindet alle acht Sections beim Deployment in die Staging-Startseite ein und entfernt deren Fetch-Ladeskript. Die Quelldatei wird nicht ueberschrieben.
+- Fehlende Sections oder geaenderte Platzhalter brechen den Build und damit den Upload ab. Das Build-Skript wird nicht veroeffentlicht.
+- Preis-Teaser werden weiterhin aus der zentralen JavaScript-Konfiguration gerendert; eine statische Preisausgabe ist damit noch nicht umgesetzt.
+- `sitemap.xml` enthaelt Startseite, fuenf Leistungsseiten und Preisuebersicht. Bei neuen oeffentlichen Seiten mitpflegen. Impressum und Datenschutz sind wegen ihres bestehenden noindex nicht enthalten; ebenso keine Sections oder Entwuerfe.
+- `robots.txt` verweist auf die Sitemap. Keine kuenstlichen lastmod-Daten. Die Sitemap kann in der Search Console eingereicht werden.
+
 - Hosting bei Goneo, Web-Root `htdocs/`, Zugang nur per FTPS (kein SFTP)
 - Upload per `deploy.ps1 -Insecure` (Goneo-Zertifikat lautet auf *.goneo.de,
   daher `-Insecure`; Verbindung bleibt TLS-verschlüsselt)

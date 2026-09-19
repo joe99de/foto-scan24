@@ -74,13 +74,15 @@ try {
   $exclude = @('.git', '.gitignore', '.claude', '.idea', '.vscode', 'print', 'CLAUDE.md', 'server-starten.bat', 'deploy.ps1', 'goneo.local.ps1', 'goneo-upload.ps1', 'goneo-rollback.ps1', 'video-sandbox.html')
   # $excludeFiles greift auf Dateinamen in beliebiger Verzeichnistiefe.
   $excludeFiles = @('family_gold_02orig.png')
-  $stage = Join-Path $env:TEMP "fs24-deploy"
-  if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
+  $exclude += 'build-index.ps1'
+  $stage = Join-Path $env:TEMP ("fs24-deploy-" + [guid]::NewGuid().ToString('N'))
   New-Item -ItemType Directory -Path $stage | Out-Null
 
   Get-ChildItem -Path $ScriptDir -Force |
     Where-Object { $exclude -notcontains $_.Name } |
     ForEach-Object { Copy-Item $_.FullName -Destination $stage -Recurse -Force }
+
+  & (Join-Path $ScriptDir 'build-index.ps1') -OutputPath (Join-Path $stage 'index.html')
 
   $files = Get-ChildItem -Path $stage -Recurse -File -Force |
     Where-Object { $excludeFiles -notcontains $_.Name }

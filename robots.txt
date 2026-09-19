@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://foto-scan24.de/sitemap.xml
