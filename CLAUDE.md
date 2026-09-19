@@ -52,6 +52,7 @@ foto-scan24/
 | `dias.html` | Medien-Unterseite: Dias |
 | `super8.html` | Medien-Unterseite: Super 8 & Normal 8 |
 | `video.html` | Medien-Unterseite: VHS / Hi8 / Digital8 / MiniDV |
+| `video-sandbox_02.html` | Entwurf: Video-Unterseite mit MiniDV-&-Digital8-Erklärung und Fallback-Hinweis |
 | `fotos.html` | Medien-Unterseite: Fotos & Negative |
 | `fotoalben.html` | Medien-Unterseite: Fotoalben |
 
