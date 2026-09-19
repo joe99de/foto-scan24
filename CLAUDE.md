@@ -1,7 +1,9 @@
 ﻿# Foto-scan24.de — Projektdokumentation
 
 ## Firma
-Mediendigitalisierung, Website: Foto-scan24.de
+Mediendigitalisierung als Dienstleistung der Herrmann & Herrmann GbR,
+Website: foto-scan24.de. foto-scan24.de ist eine Geschäftsbezeichnung der
+Herrmann & Herrmann GbR.
 
 ## Arbeitsweise
 - Quellmaterial liegt auf: `C:\diskstation\H und H\Digitalisierung\website\`
